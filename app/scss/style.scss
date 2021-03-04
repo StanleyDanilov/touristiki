@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Mulish:wght@300;400;600;700&family=Nunito:wght@400;600;800&display=swap');
+
+// === Mixin start ===
+@mixin mulish {
+  font-family: 'Mulish', sans-serif;
+}
+
+@mixin nunito {
+  font-family: 'Nunito', sans-serif;
+}
+
+@mixin luckiest-guy {
+  font-family: 'Luckiest Guy', cursive;
+}
+// === Mixin end ===
+
+// === Variables start ===
+$fw-light: 300;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semi-bold: 600;
+$fw-bold: 700;
+$fw-extra-bold: 800;
+
+$primary-color: #0a223d;
+$secondary-color: #ec1f46;
+$text-color: #333333;
+
+// === Variables end ===
+
+
+// === Common start ===
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  @include mulish;
+  color: $text-color;
+}
+
+.section__wrapper {
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  outline: none;
+}
+
+.btn {
+  @include nunito;
+  color: #fff;
+  background-color: $secondary-color;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+// === Common end ===
+
+
+// === Header start ===
+
+.header {
+
+  &__top {
+    padding: 24px 0;
+    font-size: 12px;
+    background-color: #f5fafe;
+
+    &__wrapper {
+      max-width: 1110px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+    }
+
+    &-text {
+      font-size: 12px;
+      font-weight: $fw-bold;
+      color: $text-color;
+      transition: .2s;
+
+      .header__top-tel {
+        font-weight: $fw-regular;
+        padding-left: 10px;
+      }
+
+      &:hover {
+        opacity: .75;
+      }
+
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      color: $text-color;
+      position: relative;
+      transition: .2s;
+      
+      & + & {
+        margin-left: 98px;
+      }
+
+      &::before {
+        display: block;
+        margin-right: 20px;
+      }
+
+      &:hover {
+        opacity: .75;
+      }
+    }
+
+    .header__gift-card {
+      margin-left: auto;
+
+      &::before {
+        content: url(../images/gift-icon.svg);
+      }
+    }
+
+    .header__loyalty-program::before {
+      content: url(../images/loyalty-program-icon.svg);
+    }
+  }
+
+  &__main {
+    max-width: 1110px;
+    display: flex;
+    align-items: center;
+    padding: 40px 0;
+    margin: 0 auto;
+
+    .header-logo {
+      @include luckiest-guy;
+      color: $text-color;
+      font-size: 26px;
+
+      &-colored {
+        color: $secondary-color;
+      }
+    }
+
+    .header__search {
+      max-height: 44px;
+      max-width: 350px;
+      width: 100%;
+      margin-left: 108px;
+      display: flex;
+
+      &-bar {
+        flex-grow: 1;
+        padding: 12px 22px;
+        border: none;
+        background: #f5fafe;
+        border-radius: 6px;
+        font-size: 16px;
+        border-radius: 6px 0px 0px 6px;
+
+        &::placeholder {
+          color: $text-color;
+        }
+
+        &:focus {
+          box-shadow: 0 0 5pt 2pt #D3D3D3
+        }
+      }
+
+      .btn-search-bar {
+        padding: 12px 24px;
+        background: $secondary-color;
+        border-radius: 0px 6px 6px 0px;
+        transition: .2s all;
+
+        &:hover {
+          background-color: lighten($secondary-color, 6%);
+          box-shadow: 1px 1px 4px 1px #ccc;
+        }
+      }
+    }
+
+    .header__shopping-cart {
+      margin-left: auto;
+      display: block;
+      position: relative;
+      cursor: pointer;
+
+      &__counter {
+        width: 18px;
+        height: 18px;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        content: '2';
+        position: absolute;
+        top: -5px;
+        left: 15px;
+        color: #fff;
+        font-size: 12px;
+        background-color: $secondary-color;
+        border-radius: 50%;
+      }
+    }
+
+    .header__profile {
+      display: flex;
+      align-items: center;
+      margin-left: 53px;
+      cursor: pointer;
+
+      &-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+
+      &-title {
+        padding-left: 18px;
+        font-size: 16px;
+        font-weight: $fw-bold;
+      }
+
+      &::after {
+        display: inline-block;
+        content: url(../images/arrow-down-icon.svg);
+        padding-left: 24px;
+      }
+    }
+  }
+  
+  &__bottom {
+    padding: 30px 0;
+    background-color: #0a223d;
+
+    .header__navbar {
+      max-width: 1110px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      list-style: none;
+
+      &-item {
+        font-size: 14px;
+        font-weight: $fw-bold;
+        text-transform: uppercase;
+
+        .header__navbar-link {
+          padding: 10px;
+          color: #fff;
+          text-align: center;
+          transition: .3s;
+
+          &:hover {
+            color: #0a223d;
+            background-color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+// === Header end ===
+
+// === Main start ===
+
+.main {
+  background-color: #f5fafe;
+
+  &__bread-crumbs {
+    padding: 18px 0;
+
+    &__item {
+      color: $text-color;
+      font-size: 12px;
+
+      &::after {
+        content: '/';
+        margin: 0 10px;
+      }
+
+      &:last-child::after {
+        content: '';
+        display: none;
+      }
+    }
+  }
+
+  &__title {
+    
+  }
+}
+
+// === Main end ===

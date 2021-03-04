@@ -218,6 +218,7 @@ input {
       align-items: center;
       margin-left: 53px;
       cursor: pointer;
+      position: relative;
 
       &-img {
         width: 40px;
@@ -235,6 +236,38 @@ input {
         display: inline-block;
         content: url(../images/arrow-down-icon.svg);
         padding-left: 24px;
+      }
+
+      &-dropmenu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 45px;
+        left: 40px;
+        border: 1px solid $primary-color;
+        background-color: #f5fafe;
+        border-radius: 5px;
+
+        &__item {
+          transition: .2s;
+          list-style: none;
+          text-align: center;
+        }
+
+        &__link {
+          display: block;
+          color: $text-color;
+          padding: 15px;
+
+          &:hover {
+            background-color: $primary-color;
+            color: #fff;
+          }
+        }
+      }
+
+      &-dropmenu-active {
+        display: flex;
       }
     }
   }
